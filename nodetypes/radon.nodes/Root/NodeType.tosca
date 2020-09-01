@@ -1,0 +1,20 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+
+node_types:
+  radon.nodes.Root:
+    derived_from: tosca.nodes.Root
+    metadata:
+      targetNamespace: "radon.nodes"
+      abstract: "false"
+      final: "false"
+    attributes:
+      id:
+        type: string
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+        default: "root"
+        constraints:
+          - equal: root

@@ -1,0 +1,28 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+
+policy_types:
+  radon.policies.performance.ResponseTimePercentile:
+    metadata:
+      targetNamespace: "radon.policies.performance"
+      abstract: "false"
+      final: "false"
+    properties:
+      lower_bound:
+        type: float
+        description: Time in seconds
+        required: false
+        constraints:
+          - greater_or_equal: 0.0
+      target_entry:
+        type: string
+        required: false
+      rank:
+        type: integer
+        constraints:
+          - in_range: [ 1,100 ]
+      upper_bound:
+        type: float
+        description: Time in seconds
+        required: false
+        constraints:
+          - greater_or_equal: 0.0

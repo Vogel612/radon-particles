@@ -1,0 +1,31 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+
+node_types:
+  radon.nodes.ServerlessFunction:
+    derived_from: radon.nodes.Root
+    metadata:
+      targetNamespace: "radon.nodes"
+      abstract: "false"
+      final: "false"
+    properties:
+      entries:
+        type: radon.datatypes.ServerlessFunction.Entries
+        required: false
+      type:
+        type: string
+        default: "serverless-functions"
+        constraints:
+          - equal: serverless-function
+    requirements:
+      - object_storage:
+          capability: radon.capabilities.ObjectStorage
+          relationship: radon.relationships.Access
+          occurrences: [ 0, UNBOUNDED ]
+      - third_party_service:
+          capability: radon.capabilities.ThirdPartyService
+          relationship: radon.relationships.Access
+          occurrences: [ 0, UNBOUNDED ]
+    capabilities:
+      serverless_function:
+        occurrences: [ 0, UNBOUNDED ]
+        type: radon.capabilities.ServerlessFunction
