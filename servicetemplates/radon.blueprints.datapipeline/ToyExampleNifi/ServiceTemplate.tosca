@@ -154,11 +154,7 @@ topology_template:
       type: tosca.relationships.HostedOn
     con_ConnectsToNifi_0:
       type: radon.relationships.nifi.ConnectsToNifi
-      properties:
-        credential: null
     con_ConnectsToNifi_1:
       type: radon.relationships.nifi.ConnectsToNifi
-      properties:
-        credential: null
     con_HostedOn_4:
       type: tosca.relationships.HostedOn
