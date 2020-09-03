@@ -19,6 +19,6 @@ node_types:
         constraints:
           - equal: third-party-service
     capabilities:
-      third_party_service:
+      endpoint:
         occurrences: [ 0, UNBOUNDED ]
-        type: radon.capabilities.ThirdPartyService
+        type: tosca.capabilities.Endpoint

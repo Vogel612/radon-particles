@@ -81,6 +81,10 @@ node_types:
           node: radon.nodes.aws.AwsPlatform
           relationship: tosca.relationships.HostedOn
           occurrences: [ 1, 1 ]
+    capabilities:
+      function_capability:
+        occurrences: [ 0, UNBOUNDED ]
+        type: radon.capabilities.ServerlessFunction
     interfaces:
       Standard:
         type: tosca.interfaces.node.lifecycle.Standard

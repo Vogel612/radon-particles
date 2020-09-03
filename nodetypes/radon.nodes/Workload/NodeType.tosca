@@ -8,8 +8,8 @@ node_types:
       abstract: "false"
       final: "false"
     properties:
-      entries:
-        type: radon.datatypes.Workload.Entries
+      start:
+        type: radon.datatypes.Entry
         required: false
       type:
         type: string
@@ -17,15 +17,15 @@ node_types:
         constraints:
           - equal: workload
     requirements:
-      - object_storage:
-          capability: radon.capabilities.ObjectStorage
-          relationship: radon.relationships.Access
+      - storage:
+          capability: tosca.capabilities.Endpoint
+          relationship: radon.relationships.ConnectsTo
           occurrences: [ 0, UNBOUNDED ]
-      - serverless_function:
-          capability: radon.capabilities.ServerlessFunction
-          relationship: radon.relationships.Invoke
+      - function:
+          capability: radon.capabilities.Invocable
+          relationship: radon.relationships.abstract.Triggers
           occurrences: [ 0, UNBOUNDED ]
       - third_party_service:
-          capability: radon.capabilities.ThirdPartyService
-          relationship: radon.relationships.Access
+          capability: tosca.capabilities.Node
+          relationship: radon.relationships.ConnectsTo
           occurrences: [ 0, UNBOUNDED ]
